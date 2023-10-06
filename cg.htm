@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Language" content="ru">
 <meta http-equiv=Content-Type content="text/html; charset=windows-1251">
-<title>Текущее расписание</title>
+<title>Текущее расписание: Группа: КСК-123</title>
 <meta name="keywords" content="расписание, занятие, расписание учебных занятий, программа, Экспресс-расписание, веб-страница">
 <meta name="description" content="Страницы для веб-просмотра текущего (фактического) расписания учебных занятий на неделю. Программа &quot;Экспресс-расписание&quot;. Батищев П.С.">
 
@@ -130,9 +130,18 @@ if(js>11)d.write('--'+'>')//--></script>
 
 <div class=lrg2 style="width: 760px; height: 15px">
 
-	<h2>1 курс</h2>
+	<div class=lrg2 style="width: 760px; height: 15px">
+	<br>
+	
+	<div class="container">
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Поиск группы" />
+  </div>
+
+<br>
+	<h2 id="title1">1 курс</h2>
     <h1>
-		<ul>
+		<ul id="list1">
     <li><a class="z2" href="cg2.htm">КСК-123</a></li>
 	<li><a class="z2" href="cg20.htm">РЭУ-123</a></li>
 	<li><a class="z2" href="cg24.htm">ТМ-123</a></li>
@@ -145,9 +154,9 @@ if(js>11)d.write('--'+'>')//--></script>
 	<li><a class="z2" href="cg40.htm">ФЗ-123</a></li>
 		</ul>
 	</h1>
-	<H2>2 курс</H2>
+	<H2 id="title2">2 курс</H2>
 	<h1>
-		<ul>
+		<ul id="list2">
 	<li><a class="z2" href="cg3.htm">ДО-222</a></li>
 	<li><a class="z2" href="cg4.htm">ИСП БД-222</a></li>
 	<li><a class="z2" href="cg5.htm">ИСП БД-222/в</a></li>
@@ -162,9 +171,9 @@ if(js>11)d.write('--'+'>')//--></script>
 	<li><a class="z2" href="cg36.htm">НС-222</a></li>
 		</ul>
 	</h1>
-	<h2>3 курс</h2>
+	<h2 id="title3">3 курс</h2>
 	<h1>
-		<ul>
+		<ul id="list3">
 	<li><a class="z2" href="cg7.htm">ДО-321/в</a></li>
 	<li><a class="z2" href="cg9.htm">ИСП-321/1</a></li>
 	<li><a class="z2" href="cg27.htm">ИСП-321/2</a></li>
@@ -178,9 +187,9 @@ if(js>11)d.write('--'+'>')//--></script>
 	<li><a class="z2" href="cg33.htm">ТМ-321</a></li>
 		</ul>
 	</h1>
-	<h2>4 курс</h2>
+	<h2 id="title4">4 курс</h2>
 	<h1>
-		<ul>
+		<ul id="list4">
 	<li><a class="z2" href="cg10.htm">КСК-420</a></li>
 	<li><a class="z2" href="cg11.htm">ИСП-420</a></li>
 	<li><a class="z2" href="cg28.htm">ИСП-420/в</a></li>
@@ -189,10 +198,79 @@ if(js>11)d.write('--'+'>')//--></script>
 	<li><a class="z2" href="cg14.htm">МТЭ-420</a></li>
 		</ul>
     </h1>
-
 <p>&nbsp;</p>
 
+<script>
+		// Считываем элементы input и list
+const searchInput = document.querySelector("#searchInput");
+const list1 = document.querySelector("#list1");
+const list2 = document.querySelector("#list2");
+const list3 = document.querySelector("#list3");
+const list4 = document.querySelector("#list4");
+const title1 = document.querySelector("#title1");
+const title2 = document.querySelector("#title2");
+const title3 = document.querySelector("#title3");
+const title4 = document.querySelector("#title4");
 
+// Добавляем прослушиватель событий при вводе в input
+searchInput.addEventListener("input", function () {
+  // Получаем поисковый запрос
+  const searchTerm = this.value.toLowerCase();
+
+  // Перебираем элементы списка
+  for (let i = 0; i < list4.children.length; i++) {
+    const item = list4.children[i];
+
+    // Если поисковый запрос найден в тексте элемента, показываем его
+    if (item.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
+      item.style.display = "block";
+	  title1.style.display = "block";
+    } else {
+      item.style.display = "none";
+	  title1.style.display = "none";
+    }
+  }
+
+  for (let i = 0; i < list1.children.length; i++) {
+    const item = list1.children[i];
+
+    // Если поисковый запрос найден в тексте элемента, показываем его
+    if (item.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
+      item.style.display = "block";
+	  title2.style.display = "block";
+    } else {
+      item.style.display = "none";
+	  title2.style.display = "none";
+    }
+  }
+
+  for (let i = 0; i < list2.children.length; i++) {
+    const item = list2.children[i];
+
+    // Если поисковый запрос найден в тексте элемента, показываем его
+    if (item.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
+      item.style.display = "block";
+	  title3.style.display = "block";
+    } else {
+      item.style.display = "none";
+	  title3.style.display = "none";
+    }
+  }
+
+  for (let i = 0; i < list3.children.length; i++) {
+    const item = list3.children[i];
+
+    // Если поисковый запрос найден в тексте элемента, показываем его
+    if (item.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
+      item.style.display = "block";
+	  title4.style.display = "block";
+    } else {
+      item.style.display = "none";
+	  title4.style.display = "none";
+    }
+  }
+});
+	</script>
 
 <hr>
 
